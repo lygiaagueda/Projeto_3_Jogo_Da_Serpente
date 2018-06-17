@@ -39,3 +39,5 @@ limpa:
 	@echo "\nDeletando todos os objetos (.o)\n"
 	-rm -f *.o
 	-rm -f $(NOME)
+exe: $(NOME)
+	./$(NOME)

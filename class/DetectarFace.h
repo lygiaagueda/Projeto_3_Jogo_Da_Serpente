@@ -14,15 +14,14 @@ using cv::CASCADE_SCALE_IMAGE;
 
 class DetectarFace{
     private:
-    
     cv::CascadeClassifier classificador;
     std::string diretorioClassificador;
 
     public:
     DetectarFace();
-    DetectarFace(std::string diretorio);
     virtual~DetectarFace();
 
+    void carregaClassificador(std::string diretorio);
     std::vector<cv::Rect> getFaces(cv::Mat& frame);
 
 
