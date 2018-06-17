@@ -19,7 +19,8 @@ int main( int argc, const char** argv )
     std::vector<cv::Rect> faces;
     cv::VideoCapture capture;
     cv::Mat frame, frameDeSaida;
-    
+    //std::string textoJanela;
+
     DetectarFace detectar;
     DesenhaNoFrame desenhar;
    
@@ -45,11 +46,13 @@ int main( int argc, const char** argv )
             if(frame.empty()){
                 break;
             }
-
+            
             faces = detectar.getFaces(frame);
             desenhar.desenhaNoFrame(faces, frame, 1);            
-            cv::imshow("COBRINHA GAME", frame);
-
+            
+            cv::imshow("COBRINHA GAME",textoJanela, frame);
+            ///cv::putText();
+            
             char c = (char)cv::waitKey(10);
             if( c == 27 || c == 'q' || c == 'Q' )
                 break;

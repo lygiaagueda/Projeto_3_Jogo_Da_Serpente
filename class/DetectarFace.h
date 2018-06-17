@@ -11,7 +11,7 @@
 
 using cv::COLOR_BGR2GRAY;
 using cv::CASCADE_SCALE_IMAGE;
-
+using cv::INTER_LINEAR;
 class DetectarFace{
     private:
     cv::CascadeClassifier classificador;
