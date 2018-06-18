@@ -50,7 +50,7 @@ int main( int argc, const char** argv )
             faces = detectar.getFaces(frame);
             desenhar.desenhaNoFrame(faces, frame, 1);            
             
-            cv::imshow("COBRINHA GAME",textoJanela, frame);
+            cv::imshow("COBRINHA GAME", frame);
             ///cv::putText();
             
             char c = (char)cv::waitKey(10);
