@@ -1,7 +1,7 @@
 #include "DesenhaNoFrame.h"
 
 DesenhaNoFrame::DesenhaNoFrame(){
-    //flag = 0;   
+    flag = 0;   
     auxX = 0;
     auxY = 0;
     corB = rand() % 256;
@@ -19,8 +19,11 @@ std::string DesenhaNoFrame::getPontuacao(void){
     return std::to_string(pontuacao);
 }
 
+void DesenhaNoFrame::zeraPontuacao(void){
+    this->pontuacao = 0;
+}
 
-void DesenhaNoFrame::desenhaNoFrame(std::vector<cv::Rect> &faces, cv::Mat &frame, double escala){
+void DesenhaNoFrame::desenhaNoFrame(std::vector<cv::Rect> &faces, cv::Mat &frame, double escala, std::string &tempo){
     size_t i;
     
     //cv::Point  ponto;
@@ -28,12 +31,12 @@ void DesenhaNoFrame::desenhaNoFrame(std::vector<cv::Rect> &faces, cv::Mat &frame
  
     for(i = 0 ; i<faces.size(); i++){
         rectFace = faces[i];
-
+/*
          rectangle( frame, cvPoint(cvRound(rectFace.x*escala), cvRound(rectFace.y*escala)),
                     cvPoint(cvRound((rectFace.x + rectFace.width-1)*escala), 
                     cvRound((rectFace.y + rectFace.height-1)*escala)),
                     cv::Scalar(156, 200, 56), 3, 8, 0);
-
+*/
         if( (!flag) || (auxX > (rectFace.x*escala) * 0.9) && (auxX + 50 < ((rectFace.x + rectFace.width-1)*escala) * 0.9) &&
             (auxY > (rectFace.y*escala) * 0.9) && (auxY + 50 < ((rectFace.y + rectFace.height-1)*escala) * 0.9))
         {
@@ -59,5 +62,8 @@ void DesenhaNoFrame::desenhaNoFrame(std::vector<cv::Rect> &faces, cv::Mat &frame
 
     std::string teste = "Pontos: " + std::to_string(pontuacao);
     cv::putText(frame, teste, cv::Point(20, 50), FONT_HERSHEY_COMPLEX, 1, cv::Scalar(200, 50, 100), 1, LINE_AA);
+    cv::putText(frame, tempo, cv::Point(200, 50), FONT_HERSHEY_COMPLEX, 1, cv::Scalar(200, 100, 50), 1, LINE_AA);
+
+    //cv::putText(frame, teste, cv::Point(80, 50), FONT_HERSHEY_COMPLEX, 1, cv::Scalar(200, 50, 100), 1, LINE_AA);
 
 }

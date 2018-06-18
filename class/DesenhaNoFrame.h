@@ -25,8 +25,9 @@ class DesenhaNoFrame{
     DesenhaNoFrame();
     virtual~DesenhaNoFrame();
     std::string getPontuacao(void);
+    void zeraPontuacao(void);
 
-    void desenhaNoFrame(std::vector<cv::Rect> &faces, cv::Mat &frame, double escala);
+    void desenhaNoFrame(std::vector<cv::Rect> &faces, cv::Mat &frame, double escala, std::string &tempo);
 
 };
 

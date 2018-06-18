@@ -10,7 +10,7 @@ Placar::~Placar(){
 void Placar::salvarJogador(std::string jogador){
     salvarPlacar.open("dados/jogadores.dat", std::ios::out | std::ios::app);
 
-    if(salvarPlacar.is_open()){
+    if(!salvarPlacar.is_open()){
         throw JogoException("Não foi possivel abrir o arquivo para escrita!");
     }else{
        salvarPlacar << jogador << std::endl;
@@ -30,7 +30,7 @@ std::string Placar::recuperarJogadores(void){
     while(!recuperarPalcar.eof()){
         
         std::getline(recuperarPalcar, jogadorLido);
-        this->placar.append(jogadorLido);
+        this->placar.append(jogadorLido+"\n");
         
     }
     
