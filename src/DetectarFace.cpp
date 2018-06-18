@@ -35,7 +35,7 @@ std::vector<cv::Rect> DetectarFace::getFaces(cv::Mat& frame){
     cv::cvtColor(frame, frameGray, COLOR_BGR2GRAY);
     cv::equalizeHist(frameGray, frameGray);
 
-    classificador.detectMultiScale(frameGray, faces, 1.1, 2, 0|CASCADE_SCALE_IMAGE, cv::Size(30, 30));
+    classificador.detectMultiScale(frameGray, faces, 1.3, 2, 0|CASCADE_SCALE_IMAGE, cv::Size(30, 30));
     
     //|CASCADE_FIND_BIGGEST_OBJECT
     //|CASCADE_DO_ROUGH_SEARCH

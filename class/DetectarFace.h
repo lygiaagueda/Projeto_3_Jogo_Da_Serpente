@@ -12,6 +12,8 @@
 using cv::COLOR_BGR2GRAY;
 using cv::CASCADE_SCALE_IMAGE;
 using cv::INTER_LINEAR;
+using cv::CASCADE_FIND_BIGGEST_OBJECT;
+
 class DetectarFace{
     private:
     cv::CascadeClassifier classificador;

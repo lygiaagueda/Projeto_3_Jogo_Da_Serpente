@@ -2,10 +2,14 @@
 #define DESENHA_NO_FRAME_H
 #include <list>
 #include <unistd.h>
+#include <string>
 
 #include "opencv2/highgui.hpp" //
 #include "opencv2/imgproc.hpp"
 #include "opencv2/objdetect.hpp"
+
+using cv::LINE_AA;
+using cv::FONT_HERSHEY_COMPLEX;
 
 class DesenhaNoFrame{
     private:

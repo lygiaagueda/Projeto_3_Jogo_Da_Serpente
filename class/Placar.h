@@ -3,18 +3,20 @@
 
 #include <fstream>
 #include <string>
+#include "JogoException.h"
 
 class Placar{
 	private:
+		std::string placar;
 		std::ofstream salvarPlacar;
-		std::ifStream recuperarPalcar;
+		std::ifstream recuperarPalcar;
 
 	public:
 		Placar();
 		virtual~Placar();
 	
-		void salvarPlacar(std::string placar);	
-		std::string recuperarPlacar(void);
+	void salvarJogador(std::string jogador);
+	std::string recuperarJogadores(void);
 
 };
 
